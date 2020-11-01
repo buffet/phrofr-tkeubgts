@@ -13,6 +13,7 @@
 "KA*PS": "{MODE:CAPS}",
 "KPA*L": "{<}",
 "PHR*UP": "{PLOVER:LOOKUP}",
+"PREPBZ": "{^()}",
 "SHR*UG": "¯\\_(ツ)_/¯",
 "SOER": "sorry",
 "WAEU/HRAPBD": "Wayland"
