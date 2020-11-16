@@ -113,7 +113,7 @@ def build_dict():
         # UPPER_SNAKE_CASE
         {
             'stroke': ['-R', '-B'],
-            'expr': r'"".join([w.upper() for w in words])',
+            'expr': r'"_".join([w.upper() for w in words])',
         },
         # kebap-case
         {
