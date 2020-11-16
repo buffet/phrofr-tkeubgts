@@ -9,7 +9,7 @@ All chords defined here use KWR-.
 The casing style is selected with a combination of -RBG.
 The number of words can either be increased by repeating the chord, or by adding a number.
 
-Note that KWR-R (why are) gets lost. This rebinds it to KWR*R.
+Note that KWR-R (why are) gets lost.
 
 Case style:
 snake_case:  -R
@@ -34,6 +34,7 @@ These use a binary encoding using the left hand, similar to the left hand modifi
 """
 
 import json
+import sys
 
 
 def build_stroke(keys):
@@ -122,9 +123,7 @@ def build_dict():
         },
     ]
 
-    res = {
-        'KWR*R': "why are",  # originally KWR-R, gets lost with this
-    }
+    res = {}
 
     for case in cases:
         keys = common + case['stroke']
@@ -143,5 +142,5 @@ def build_dict():
 dict = build_dict()
 json_dict = json.dumps(dict, sort_keys=True, indent=0)
 
-with open("retro_identifier.json", 'w') as f:
+with open(sys.argv[1], 'w') as f:
     f.write(json_dict)
