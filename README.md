@@ -4,5 +4,5 @@
 | "emoji.json"            | Typing Emojis with steno                                            |
 | "retro_identifier.json" | Turn the last N words into an identifier                            |
 | "users.json"            | Place where new binds get added, should be empty most of the time   |
-| "syms.json"             | Type out punctuation                                                |
+| "syms.json"             | Type out punctuation with a given alignment                         |
 | "words.json"            | Words missing in the default dict                                   |
