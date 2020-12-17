@@ -18,10 +18,14 @@ Spaces:
 Syms:
 | Outline | Sym | Explanaition           |
 |---------+-----+------------------------|
+| TK      | .   | Dot                    |
+| KR      | ,   | Comma                  |
 | KPR     | ^   | shape                  |
 | TP      | !   | used in TP-BG          |
 | H       | ?   | used in H-F            |
 | KPH     | /   | shape                  |
+| K       | :   | Kolon                  |
+| SK      | ;   | SemiKolon              |
 | KW      | "   | Quote                  |
 | KWHR    | =   | eQuaL                  |
 | P       | %   | Percent                |
@@ -38,7 +42,7 @@ Syms:
 | STRA    | *   | STAR                   |
 | T       | '   | Tick                   |
 | THR     | ~   | TilDe                  |
-| TK      | $   | Dollar                 |
+| TKHR    | $   | DoLLar                 |
 | TKPW    | @   | shape                  |
 | TPH     | #   | Number                 |
 | TPR     | {   | FRench bracket         |
@@ -54,6 +58,14 @@ from steno import build_stroke, write_dict
 def build_dict():
     syms = [
         {
+            'stroke': ['T-', 'K-'],
+            'sym': '.',
+        },
+        {
+            'stroke': ['K-', 'R-'],
+            'sym': ',',
+        },
+        {
             'stroke': ['K-', 'P-', 'R-'],
             'sym': '^',
         },
@@ -68,6 +80,14 @@ def build_dict():
         {
             'stroke': ['K-', 'P-', 'H-'],
             'sym': '/',
+        },
+        {
+            'stroke': ['K-'],
+            'sym': ':',
+        },
+        {
+            'stroke': ['S-', 'K-'],
+            'sym': ';',
         },
         {
             'stroke': ['K-', 'W-'],
@@ -134,7 +154,7 @@ def build_dict():
             'sym': '~',
         },
         {
-            'stroke': ['T-', 'K-'],
+            'stroke': ['T-', 'K-', 'H-', 'R-'],
             'sym': '$',
         },
         {
