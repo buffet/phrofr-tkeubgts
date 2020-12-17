@@ -15,10 +15,12 @@ Spaces:
 | -RPLT   | No   | Yes   |
 | -FPGS   | Yes  | No    |
 
-Syms: TODO ^ ! ?
+Syms:
 | Outline | Sym | Explanaition           |
 |---------+-----+------------------------|
-| KPR     | ^   | shape
+| KPR     | ^   | shape                  |
+| TP      | !   | used in TP-BG          |
+| H       | ?   | used in H-F            |
 | KPH     | /   | shape                  |
 | KW      | "   | Quote                  |
 | KWHR    | =   | eQuaL                  |
@@ -54,6 +56,14 @@ def build_dict():
         {
             'stroke': ['K-', 'P-', 'R-'],
             'sym': '^',
+        },
+        {
+            'stroke': ['T-', 'P-'],
+            'sym': '!',
+        },
+        {
+            'stroke': ['H-'],
+            'sym': '?',
         },
         {
             'stroke': ['K-', 'P-', 'H-'],
