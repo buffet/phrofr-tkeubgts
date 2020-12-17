@@ -15,7 +15,7 @@ Spaces:
 | -RPLT   | No   | Yes   |
 | -FPGS   | Yes  | No    |
 
-Syms:
+Syms: TODO ^ ! ?
 | Outline | Sym | Explanaition           |
 |---------+-----+------------------------|
 | KPH     | /   | shape                  |
@@ -183,8 +183,23 @@ def build_dict():
 
     for sym in syms:
         for sp in spaces:
-            res[build_stroke(sym['stroke'] + sp['stroke'])] = \
-                '{' + sp['prefix'] + sym['sym'] + sp['suffix'] + '}'
+            if sym['sym'] == '&' and build_stroke(sp['stroke']) == "-RPLT":
+                res["SKP-RPLT"] = "&{^}"
+                continue
+
+            if sp['prefix'] == sp['suffix'] == '':
+                res[build_stroke(sym['stroke'] + sp['stroke'])] = \
+                    sp['prefix'] + sym['sym'] + sp['suffix']
+            else:
+                res[build_stroke(sym['stroke'] + sp['stroke'])] = \
+                    '{' + sp['prefix'] + sym['sym'] + sp['suffix'] + '}'
+
+            if sp['prefix'] == sp['suffix'] == '':
+                res[build_stroke(sym['stroke'] + sp['stroke'] + ['*'])] = \
+                    sp['prefix'] + (sym['sym'] * 2) + sp['suffix']
+            else:
+                res[build_stroke(sym['stroke'] + sp['stroke'] + ['*'])] = \
+                    '{' + sp['prefix'] + (sym['sym'] * 2) + sp['suffix'] + '}'
 
     return res
 
