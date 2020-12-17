@@ -181,10 +181,11 @@ def build_dict():
 
     res = {}
 
+    res["SKP-FPGS"] = "&{^}"
+
     for sym in syms:
         for sp in spaces:
-            if sym['sym'] == '&' and build_stroke(sp['stroke']) == "-RPLT":
-                res["SKP-RPLT"] = "&{^}"
+            if sym['sym'] == '&' and build_stroke(sp['stroke']) == "-FPGS":
                 continue
 
             if sp['prefix'] == sp['suffix'] == '':
