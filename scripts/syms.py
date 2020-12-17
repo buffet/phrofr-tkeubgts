@@ -215,6 +215,8 @@ def build_dict():
                 res["KPR-RPLT"] = "{^}^"
                 res["KPR*RPLT"] = "{^}^^"
 
+                continue
+
 
             if sp['prefix'] == sp['suffix'] == '':
                 res[build_stroke(sym['stroke'] + sp['stroke'])] = \
