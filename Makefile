@@ -1,4 +1,5 @@
-DICTS = retro_identifier.json
+DICTS = retro_identifier.json \
+        syms.json
 
 .PHONY: all
 all: $(DICTS)

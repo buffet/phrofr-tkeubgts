@@ -14,7 +14,6 @@
 "KWHR-G": "{:retro_stringop:1:\"\".join([w.lower().capitalize() for w in words])}",
 "KWHR-R": "{:retro_stringop:1:\"_\".join([w.lower() for w in words])}",
 "KWHR-RB": "{:retro_stringop:1:\"_\".join([w.upper() for w in words])}",
-"KWR*R": "why are",
 "KWR-B": "{:retro_stringop:1:\"\".join([w.lower() if i == 0 else w.lower().capitalize() for i, w in enumerate(words)])}",
 "KWR-B/KWR-B": "{:retro_stringop:2:\"\".join([w.lower() if i == 0 else w.lower().capitalize() for i, w in enumerate(words)])}",
 "KWR-B/KWR-B/KWR-B": "{:retro_stringop:3:\"\".join([w.lower() if i == 0 else w.lower().capitalize() for i, w in enumerate(words)])}",
