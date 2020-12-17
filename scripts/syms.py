@@ -18,6 +18,7 @@ Spaces:
 Syms: TODO ^ ! ?
 | Outline | Sym | Explanaition           |
 |---------+-----+------------------------|
+| KPR     | ^   | shape
 | KPH     | /   | shape                  |
 | KW      | "   | Quote                  |
 | KWHR    | =   | eQuaL                  |
@@ -50,6 +51,10 @@ from steno import build_stroke, write_dict
 
 def build_dict():
     syms = [
+        {
+            'stroke': ['K-', 'P-', 'R-'],
+            'sym': '^',
+        },
         {
             'stroke': ['K-', 'P-', 'H-'],
             'sym': '/',
@@ -181,12 +186,25 @@ def build_dict():
 
     res = {}
 
-    res["SKP-FPGS"] = "&{^}"
-
     for sym in syms:
         for sp in spaces:
             if sym['sym'] == '&' and build_stroke(sp['stroke']) == "-FPGS":
+                res["SKP-FPGS"] = "&{^}"
                 continue
+
+            if sym['sym'] == '^':
+                res["KPR-FPLT"] = "^"
+                res["KPR*FPLT"] = "^^"
+
+                res["KPR-RBGS"] = "{^}^{^}"
+                res["KPR*RBGS"] = "{^}^^{^}"
+
+                res["KPR-FPGS"] = "^{^}"
+                res["KPR*FPGS"] = "^^{^}"
+
+                res["KPR-RPLT"] = "{^}^"
+                res["KPR*RPLT"] = "{^}^^"
+
 
             if sp['prefix'] == sp['suffix'] == '':
                 res[build_stroke(sym['stroke'] + sp['stroke'])] = \
