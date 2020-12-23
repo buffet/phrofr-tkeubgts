@@ -1,7 +1,9 @@
 {
 "AG/TKA": "Agda",
+"EL/KWAR": "ElKowar",
 "EPBG": "epic",
 "EUD/REUS": "Idris",
+"KA/TA/TPHA": "katana",
 "KAOE/PWAOEUPBD": "keybind",
 "KOT/HREUPB": "Kotlin",
 "KROS/TAP": "CrossTap",
@@ -14,6 +16,7 @@
 "SOL/RAOEUZ": "solarized",
 "SOL/RAOEUZ/-D": "solarized",
 "TKOT/REL": "Dotterel",
+"TKPWRUF/PWOBGS": "gruvbox",
 "TKPWURL": "gurl",
 "TPH*/SR*EUPL": "nvim",
 "TPHEUBG/HRA*S": "Niclas",
