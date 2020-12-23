@@ -222,21 +222,22 @@ def build_dict():
                 res["SKP-FPGS"] = "&{^}"
                 continue
 
-            if sym['sym'] == '^':
-                res["KPR-FPLT"] = "^"
-                res["KPR*FPLT"] = "^^"
+            if sym['sym'] in ".,!?^":
+                if sp['prefix'] == sp['suffix'] == '':
+                    res[build_stroke(sym['stroke'] + sp['stroke'])] = \
+                        sp['prefix'] + sym['sym'] + sp['suffix']
+                else:
+                    res[build_stroke(sym['stroke'] + sp['stroke'])] = \
+                        '{' + sp['prefix'] + '}' + sym['sym'] + '{' + sp['suffix'] + '}'
 
-                res["KPR-RBGS"] = "{^}^{^}"
-                res["KPR*RBGS"] = "{^}^^{^}"
-
-                res["KPR-FPGS"] = "^{^}"
-                res["KPR*FPGS"] = "^^{^}"
-
-                res["KPR-RPLT"] = "{^}^"
-                res["KPR*RPLT"] = "{^}^^"
+                if sp['prefix'] == sp['suffix'] == '':
+                    res[build_stroke(sym['stroke'] + sp['stroke'] + ['*'])] = \
+                        sp['prefix'] + (sym['sym'] * 2) + sp['suffix']
+                else:
+                    res[build_stroke(sym['stroke'] + sp['stroke'] + ['*'])] = \
+                        '{' + sp['prefix'] + '}' + (sym['sym'] * 2) + '{' + sp['suffix'] + '}'
 
                 continue
-
 
             if sp['prefix'] == sp['suffix'] == '':
                 res[build_stroke(sym['stroke'] + sp['stroke'])] = \
