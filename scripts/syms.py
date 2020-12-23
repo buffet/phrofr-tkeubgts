@@ -190,25 +190,25 @@ def build_dict():
     spaces = [
         # neither side
         {
-            'stroke': ['-R', '-B', '-G', '-S'],
+            'stroke': ['-F', '-P', '-L', '-T'],
             'prefix': '^',
             'suffix': '^',
         },
         # both sides
         {
-            'stroke': ['-F', '-P', '-L', '-T'],
+            'stroke': ['-R', '-B', '-G', '-S'],
             'prefix': '',
             'suffix': '',
         },
         # left
         {
-            'stroke': ['-F', '-P', '-G', '-S'],
+            'stroke': ['-R', '-P', '-L', '-T'],
             'prefix': '',
             'suffix': '^',
         },
         # right
         {
-            'stroke': ['-R', '-P', '-L', '-T'],
+            'stroke': ['-F', '-P', '-G', '-S'],
             'prefix': '^',
             'suffix': '',
         },
