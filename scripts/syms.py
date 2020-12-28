@@ -10,10 +10,10 @@ Star key is used to insert two of the symbol (without space between them).
 Spaces:
 | Outline | Left | Right |
 |---------+------+-------|
-| -RGBS   | No   | No    |
-| -FPLT   | Yes  | Yes   |
-| -RPLT   | No   | Yes   |
-| -FPGS   | Yes  | No    |
+| -RGBS   | Yes  | Yes   |
+| -FPLT   | No   | No    |
+| -RPLT   | Yes  | No    |
+| -FPGS   | No   | Yes   |
 
 Syms:
 | Outline | Sym | Explanaition           |
@@ -218,40 +218,22 @@ def build_dict():
 
     for sym in syms:
         for sp in spaces:
-            if sym['sym'] == '&' and build_stroke(sp['stroke']) == "-FPGS":
-                res["SKP-FPGS"] = "&{^}"
-                continue
-
-            if sym['sym'] in ".,!?^":
-                if sp['prefix'] == sp['suffix'] == '':
-                    res[build_stroke(sym['stroke'] + sp['stroke'])] = \
-                        sp['prefix'] + sym['sym'] + sp['suffix']
-                else:
-                    res[build_stroke(sym['stroke'] + sp['stroke'])] = \
-                        '{' + sp['prefix'] + '}' + sym['sym'] + '{' + sp['suffix'] + '}'
-
-                if sp['prefix'] == sp['suffix'] == '':
-                    res[build_stroke(sym['stroke'] + sp['stroke'] + ['*'])] = \
-                        sp['prefix'] + (sym['sym'] * 2) + sp['suffix']
-                else:
-                    res[build_stroke(sym['stroke'] + sp['stroke'] + ['*'])] = \
-                        '{' + sp['prefix'] + '}' + (sym['sym'] * 2) + '{' + sp['suffix'] + '}'
-
-                continue
-
             if sp['prefix'] == sp['suffix'] == '':
-                res[build_stroke(sym['stroke'] + sp['stroke'])] = \
-                    sp['prefix'] + sym['sym'] + sp['suffix']
-            else:
-                res[build_stroke(sym['stroke'] + sp['stroke'])] = \
-                    '{' + sp['prefix'] + sym['sym'] + sp['suffix'] + '}'
+                p = s = ''
 
-            if sp['prefix'] == sp['suffix'] == '':
-                res[build_stroke(sym['stroke'] + sp['stroke'] + ['*'])] = \
-                    sp['prefix'] + (sym['sym'] * 2) + sp['suffix']
+            elif sym['sym'] in ".,!?^&":
+                p = '{' + sp['prefix'] + '}'
+                s = '{' + sp['suffix'] + '}'
+
             else:
-                res[build_stroke(sym['stroke'] + sp['stroke'] + ['*'])] = \
-                    '{' + sp['prefix'] + (sym['sym'] * 2) + sp['suffix'] + '}'
+                p = '{' + sp['prefix']
+                s = sp['suffix'] + '}'
+
+            res[build_stroke(sym['stroke'] + sp['stroke'])] = \
+                p + sym['sym'] + s
+
+            res[build_stroke(sym['stroke'] + sp['stroke'] + ['*'])] = \
+                p + (sym['sym'] * 2) + s
 
     return res
 
