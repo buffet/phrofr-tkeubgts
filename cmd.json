@@ -3,6 +3,7 @@
 "#*": "{*}",
 "AFPS": "{*?}",
 "PHR*UP": "{PLOVER:LOOKUP}",
+"R*R": "{#Return}{^~|^}",
 "SKW-BGS": "{#Return}{^~|^}",
 "TK-FPS": "{*!}"
 }
